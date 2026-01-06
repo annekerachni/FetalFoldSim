@@ -3,9 +3,9 @@
 ## Presentation
 **FetalFoldSim** is a biomechanical computational model of cortical folding for simulations on human whole-brain geometry, formulated within a finite element context and implemented in Python using the FEniCS code (version 2019.1.0) [Alnaes et al., 2015]. 
 
-This model is integrated with an open-source simulation framework that facilitates mesh generation and model parameterization directly from MRI data, incorporating cortical surface biometrics used for model calibration. The whole simulation pipeline relies on open source tools such as Gmsh, 3D Slicer, Meshlab, Netgen, FEniCS and slam (https://github.com/gauzias/slam) and uses `niftitomesh`, `metrics`, `utils`, `MRI_driven_parameters`.
+This model is integrated with an open-source simulation framework that facilitates mesh generation and model parameterization directly from MRI data, incorporating cortical surface biometrics used for model calibration. The whole simulation pipeline relies on open source tools such as Gmsh, 3D Slicer, Meshlab, Netgen, FEniCS and slam (https://github.com/gauzias/slam). 
 
-A multi-scale approach to cortical folding modeling is also proposed, which use anatomical and diffusion MRI data to inform and refine model parameters.
+A multi-scale approach to cortical folding modeling is also proposed (`BrainGrowth3D_MRI`), which use anatomical and diffusion MRI data to inform and refine model parameters.
 
 <img width="4920" height="2520" alt="simulation_framework_GitHub" src="https://github.com/user-attachments/assets/4fcc7185-9cbd-4ee1-b0f0-40f551eedb73" />
 
@@ -40,8 +40,8 @@ A multi-scale approach to cortical folding modeling is also proposed, which use 
       - Mainly for simplified 3D geometries (sphere, ellipsoid), the interior of the mesh is emptied to define the "Ventricular Zone" boundary that will be fully fixed (option 2) as in [M.J. Razavi et al. 2015]
 
 #### FEniCS solver parameters:
-  - linearization method: Newton-Raphson
-  - lienar solver: ‘mumps’
+  - linearization method: Newton-Raphson + under-relaxed scheme
+  - linear solver: direct (‘mumps’)
 
 ## Simulation 
 #### Biophysical parameters:
